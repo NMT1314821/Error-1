@@ -1,0 +1,13 @@
+Before DTO I got successfully do all rest APIs. whenever I used DTO then I got those errors.
+
+and with out Use the below code in DTO layer and Entity layer i Got one error in Service Impl class.
+
+
+	public UserDto(long id2, String firstName2, String lastName2, String email2) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+public User(int id2, String firstName2, String lastName2, String email2) {
+		// TODO Auto-generated constructor stub
+	}
