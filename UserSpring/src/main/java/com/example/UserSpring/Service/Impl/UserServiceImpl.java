@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.UserSpring.Dto.UserDto;
+import com.example.UserSpring.Mapper.UserMapper;
 import com.example.UserSpring.Model.User;
 import com.example.UserSpring.Repository.UserRepository;
 import com.example.UserSpring.Service.UserService;
@@ -23,25 +24,12 @@ public class UserServiceImpl implements UserService
 	@Override
 	public UserDto createUser(UserDto userDto) 
 	{
-		//convert userDto to userJpa
-		User userDto1=new User(
-				userDto.getId(),
-				userDto.getFirstName(),
-				userDto.getLastName(),
-				userDto.getEmail()
-				
-				
-				);
+		User user =UserMapper.mapToUser(userDto);
+		User savedUser=userRepository.save(user);
 		
-		User savedUser=userRepository.save(userDto1);
-		UserDto saveuserDto = new UserDto(
-				savedUser.getId(),
-				savedUser.getFirstName(),
-				savedUser.getLastName(),
-				savedUser.getEmail()
-				
-		);
-		return saveuserDto;
+		UserDto savedUserDto=UserMapper.mapToUserDto(savedUser);
+		
+		return savedUserDto;
 	}
 
 	@Override

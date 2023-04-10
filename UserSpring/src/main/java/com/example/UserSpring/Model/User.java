@@ -3,19 +3,17 @@ package com.example.UserSpring.Model;
 
 
 import jakarta.persistence.Column;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name="nusers")
 public class User 
 {
@@ -29,11 +27,8 @@ public class User
 	private String lastName;
 	@Column(nullable= false,unique = true)
 	private String email;
-	
-
-
-	public User(int id2, String firstName2, String lastName2, String email2) {
-		// TODO Auto-generated constructor stub
+	public User(Long long1, String firstName2, String lastName2, String email2) 
+	{
 	}
 	public long getId() {
 		return id;
@@ -58,7 +53,8 @@ public class User
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}	
+	
 	
 	
 }
